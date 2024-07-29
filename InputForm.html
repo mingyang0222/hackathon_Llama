@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <h1>Enter Data</h1>
+    <form id="InputForm">
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required><br><br>
+      
+      <label for="sales">Sales:</label>
+      <input type="number" step="0.01" id="sales" name="sales" required><br><br>
+      
+      <label for="purchases">Purchases:</label>
+      <input type="number" step="0.01" id="purchases" name="purchases" required><br><br>
+      
+      <label for="rental">Rental:</label>
+      <input type="number" step="0.01" id="rental" name="rental" required><br><br>
+      
+      <label for="transportation">Transportation:</label>
+      <input type="number" step="0.01" id="transportation" name="transportation" required><br><br>
+      
+      <label for="others1">Others 1:</label>
+      <input type="number" step="0.01" id="others1" name="others1" required><br><br>
+      
+      <label for="others2">Others 2:</label>
+      <input type="number" step="0.01" id="others2" name="others2" required><br><br>
+      
+      <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+      // Corrected the form ID here to match the HTML
+      document.getElementById('InputForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Corrected the form ID here as well
+        google.script.run.processForm(document.getElementById('InputForm'));
+        // And here
+        document.getElementById('InputForm').reset();
+      });
+
+      function submitForm() {
+        // Trigger the form submission
+        document.getElementById('InputForm').dispatchEvent(new Event('submit'));
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+      });
+    </script>
+  </body>
+</html>

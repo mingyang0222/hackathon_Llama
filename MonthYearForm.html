@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <h1>Submit Month and Year</h1>
+    <form id="monthYearForm">
+      <label for="month">Month:</label>
+      <input type="number" id="month" name="month" min="1" max="12" required><br><br>
+      <label for="year">Year:</label>
+      <input type="number" id="year" name="year" required><br><br>
+      <button type="button" onclick="submitMonthYear()">Submit</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+      // This function collects the form data and sends it to the server-side function.
+      function submitMonthYear() {
+        var form = document.getElementById('monthYearForm');
+        var formData = {
+          month: form.month.value,
+          year: form.year.value
+        };
+        google.script.run.processMonthYearForm(formData);
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+      });
+    </script>
+  </body>
+</html>
